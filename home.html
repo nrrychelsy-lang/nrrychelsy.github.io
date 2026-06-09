@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Buddy - Track Your Hydration</title>
+    <link rel="stylesheet" href="Homestyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header id="navbar">
+        <div class="nav-container">
+            <div class="logo">Water Buddy</div>
+            <nav class="nav-links">
+                <a href="home.html" class="active">Home</a>
+                <a href="kalkulator.html">Kalkulator</a>
+                <a href="informasi.html">Informasi</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="full-blue-canvas">
+
+        <div class="full-blue-canvas">
+
+        <div class="bubble-ambient-container">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+        </div>
+
+        <section class="hero-wrapper">
+
+            <div class="hero-title-overlay">
+                <div class="floating-title-card">
+                    <h1>WATER<br><span class="orange-text">BUDDY</span></h1>
+                    <p class="tagline">Stay Fresh, Stay Hydrated</p>
+                </div>
+            </div>
+        </section>
+
+        <main class="cream-layer-content">
+            
+            <div class="tracker-split-container">
+                
+                <div class="left-glass-zone">
+                    <div class="glass-perspective-wrapper">
+                        <div class="real-conical-glass">
+                            <div class="glass-reflection"></div>
+                            <div class="water-liquid-fill" id="water-fill-engine">
+                                <div class="water-surface-line"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-controls-zone">
+                    
+                    <div class="achievement-status-box">
+                        <h2 class="live-tracker-badge">Capaian Minum Hari Ini</h2>
+                        <h1 id="feedback-headline">Hore ! Kamu sudah minum</h1>
+                        <div class="numeric-counter">
+                            <span id="current-ml-text">0 ml</span><span class="target-grey"> / 2000 ml</span>
+                        </div>
+                    </div>
+
+                    <div class="buttons-control-panel">
+                        <h2 class="panel-title-highlight">Tambah Capaian Minum Mu!</h2>
+                        
+                        <div class="pill-buttons-row">
+                            <div class="control-node">
+                                <button class="pill-btn" onclick="hydrateAction(200)">+200ml</button>
+                                <span class="node-caption">Cangkir</span>
+                            </div>
+                            <div class="control-node">
+                                <button class="pill-btn" onclick="hydrateAction(350)">+350ml</button>
+                                <span class="node-caption">Gelas</span>
+                            </div>
+                            <div class="control-node">
+                                <button class="pill-btn" onclick="hydrateAction(600)">+600ml</button>
+                                <span class="node-caption">Botol</span>
+                            </div>
+                        </div>
+
+                        <button class="master-reset-btn" onclick="resetHydrationToday()">Mulai Hari Baru! (Reset)</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <footer class="embedded-footer">
+                <div class="footer-grid">
+                    <div class="footer-col logo-space">
+                        <div class="dashed-logo-box">LOGO</div>
+                    </div>
+                    <div class="footer-col contact-space">
+                        <h4>Hubungi Kami</h4>
+                        <p>📞 +62 812-2945-51</p>
+                        <p>✉️ UrWaterBuddy@gmail.com</p>
+                        <p>📍 Malang, Indonesia</p>
+                    </div>
+                    <div class="footer-col form-space">
+                        <h4>Tinggalkan Pesan</h4>
+                        <form onsubmit="event.preventDefault(); alert('Pesan Anda berhasil dikirim!');">
+                            <div class="twin-input-row">
+                                <input type="text" placeholder="Nama" required>
+                                <input type="email" placeholder="Email" required>
+                            </div>
+                            <textarea placeholder="Tulis masukan atau pesan Anda di sini..." rows="2" required></textarea>
+                            <button type="submit" class="submit-form-btn">Kirim Pesan</button>
+                        </form>
+                    </div>
+                </div>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <script src="Homescript.js"></script>
+</body>
+</html>

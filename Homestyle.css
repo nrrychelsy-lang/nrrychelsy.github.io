@@ -1,0 +1,567 @@
+/* ==========================================================================
+   RESET SYSTEM & VARIABLES
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-blue: #70BDF4;
+    --layer-cream: #FFF4E0;
+    --orange-pop: #FF8A48;
+    --water-blue: #5BC0F8;
+    --text-charcoal: #2D3436;
+}
+
+body {
+    background-color: var(--bg-blue);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--text-charcoal);
+}
+
+/* ==========================================================================
+   HEADER / NAVBAR STYLE
+   ========================================================================== */
+#navbar {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    padding: 15px 0;
+    z-index: 1000;
+    background: var(--orange-pop); /* Warna orange dasar saat di atas */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+#navbar.scrolled {
+    padding: 10px 0;
+    background: rgba(255, 138, 72, 0.85); /* Orange transparan saat di-scroll */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    margin-left: 30px;
+    font-size: 0.95rem;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    opacity: 1;
+}
+
+/* ==========================================================================
+   MAIN LAYOUT MANAGEMENT
+   ========================================================================== */
+.full-blue-canvas {
+    width: 100%;
+    padding: 0 5% 40px 5%;
+}
+
+.hero-wrapper {
+    margin-top: 110px;
+    width: 100%;
+    height: 55vh;
+    min-height: 380px;
+    position: relative;
+    border-radius: 35px;
+    overflow: hidden;
+}
+
+.hero-image-box {
+    width: 100%;
+    height: 100%;
+}
+
+.hero-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-blur-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(112, 189, 244, 0.25);
+}
+
+.hero-title-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+
+.floating-title-card {
+    position: relative; /* Pastikan posisinya relatif agar z-index bekerja aktif */
+    z-index: 16; /* Berikan nilai satu tingkat di atas overlay-nya */
+    
+    background-color: white;
+    padding: 40px 80px;
+    border-radius: 28px;
+    border: 4px solid #FADAA6;
+    text-align: center;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+    transform: rotate(-1.5deg);
+    transition: transform 0.3s ease;
+}
+
+/* Memperbesar ukuran teks di dalam card agar proporsional */
+.floating-title-card h1 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 3.8rem; /* Naik dari 3.2rem */
+    line-height: 0.95;
+    color: var(--bg-blue);
+}
+
+.floating-title-card .orange-text {
+    color: var(--orange-pop);
+}
+
+.tagline {
+    margin-top: 14px;
+    font-weight: 700;
+    color: #A0AAB2;
+    font-size: 1.1rem; /* Naik dari 0.95rem */
+}
+
+/* ==========================================================================
+   CREAM LAYER (WORKSPACE UTAMA)
+   ========================================================================== */
+.cream-layer-content {
+    background-color: var(--layer-cream);
+    
+    /* TRICK: Menggunakan margin minus besar untuk menarik layer krim ke atas */
+    margin-top: -120px; 
+    
+    position: relative;
+    z-index: 10; /* Tetap di atas gelembung */
+    border-radius: 50px 50px 40px 40px; /* Sudut atas dibuat lebih melengkung halus */
+    box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.08); /* Shadow halus ke arah atas */
+    overflow: hidden;
+}
+
+.tracker-split-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    padding: 80px 8%;
+    align-items: center;
+}
+
+/* GELAS CONICAL (MELEBAR KE ATAS) */
+.left-glass-zone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.glass-perspective-wrapper {
+    padding: 10px;
+}
+
+.real-conical-glass {
+    position: relative;
+    width: 200px;
+    height: 280px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 4px solid #2D3436;
+    border-radius: 6px 6px 24px 24px;
+    clip-path: polygon(0% 0%, 100% 0%, 85% 100%, 15% 100%);
+    overflow: hidden;
+}
+
+.glass-reflection {
+    position: absolute;
+    top: 0; left: 15%; width: 15%; height: 100%;
+    background: linear-gradient(90deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%);
+    z-index: 5;
+}
+
+.water-liquid-fill {
+    position: absolute;
+    bottom: 0; left: 0; width: 100%;
+    height: 0%;
+    background-color: var(--water-blue);
+    border-top: 4px solid #3ca5ea;
+    transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.water-surface-line {
+    position: absolute;
+    top: -4px; left: 0; width: 100%; height: 6px;
+    background: rgba(255,255,255,0.2);
+}
+
+/* ==========================================================================
+   KOLOM KANAN: STATUS TEXT & INTERACTIVE BUTTONS UPDATED
+   ========================================================================== */
+.right-controls-zone {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+}
+
+/* Hierarki Font yang Ditonjolkan */
+.achievement-status-box .live-tracker-badge {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--text-charcoal);
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+
+.achievement-status-box h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #4A5568;
+    margin-bottom: 20px;
+}
+
+/* Ukuran Indikator Angka Diperkecil */
+.numeric-counter {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    background: rgba(112, 189, 244, 0.15);
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 30px;
+    color: #2B6CB0;
+}
+
+.target-grey {
+    font-size: 1.1rem;
+    color: #718096;
+}
+
+.panel-title-highlight {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-charcoal);
+    margin-bottom: 24px;
+}
+
+.pill-buttons-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.control-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    max-width: 110px;
+}
+
+/* EFEK TOMBOL INTERAKTIF (HOVER, GLARE & ACTIVE) */
+.pill-btn {
+    position: relative;
+    background-color: var(--orange-pop);
+    color: white;
+    border: none;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    width: 100%;
+    padding: 12px 0;
+    border-radius: 25px;
+    cursor: pointer;
+    overflow: hidden;
+    
+    /* Bayangan efek 3D tebal */
+    box-shadow: 0 6px 0px #D56727, 0 8px 15px rgba(213, 103, 39, 0.2); 
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                box-shadow 0.2s ease, 
+                background-color 0.2s ease;
+}
+
+/* Hover: Tombol membesar & mengambang naik */
+.pill-btn:hover {
+    transform: translateY(-4px) scale(1.06);
+    background-color: #ff985d;
+    box-shadow: 0 10px 0px #D56727, 0 12px 20px rgba(213, 103, 39, 0.3);
+}
+
+/* Efek Kilatan Sinar Menyapu Gelas/Tombol saat Kursor Datang */
+.pill-btn::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -150%; width: 50%; height: 100%;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-20deg);
+}
+
+.pill-btn:hover::after {
+    left: 150%;
+    transition: left 0.6s ease-in-out;
+}
+
+/* Active: Amblas saat ditekan mouse */
+.pill-btn:active {
+    transform: translateY(4px) scale(0.98);
+    box-shadow: 0 2px 0px #D56727, 0 4px 10px rgba(213, 103, 39, 0.4);
+}
+
+.node-caption {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #6B7280;
+    transition: color 0.2s ease;
+}
+
+.control-node:hover .node-caption {
+    color: var(--text-charcoal);
+}
+
+/* TOMBOL MASTER RESET INTERAKTIF */
+.master-reset-btn {
+    background-color: var(--orange-pop);
+    color: white;
+    border: none;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 15px 40px;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 360px;
+    box-shadow: 0 4px 15px rgba(255, 138, 72, 0.25);
+    transition: all 0.25s ease-in-out;
+}
+
+.master-reset-btn:hover {
+    transform: scale(1.03);
+    background-color: #e66b22;
+    box-shadow: 0 8px 25px rgba(230, 107, 34, 0.45);
+    letter-spacing: 0.5px;
+}
+
+.master-reset-btn:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 8px rgba(230, 107, 34, 0.2);
+}
+
+/* ==========================================================================
+   FOOTER SECTION
+   ========================================================================== */
+.embedded-footer {
+    background-color: var(--bg-blue);
+    padding: 50px 6%;
+    color: white;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr 1.5fr;
+    gap: 40px;
+}
+
+.dashed-logo-box {
+    width: 90px;
+    height: 90px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px dashed rgba(255, 255, 255, 0.6);
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    font-size: 0.9rem;
+}
+
+.footer-col h4 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.15rem;
+    margin-bottom: 18px;
+}
+
+.contact-space p {
+    font-size: 0.88rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-space form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.twin-input-row {
+    display: flex;
+    gap: 8px;
+}
+
+.twin-input-row input {
+    flex: 1;
+}
+
+.form-space input, .form-space textarea {
+    padding: 11px 14px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--layer-cream);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-charcoal);
+}
+
+.submit-form-btn {
+    background-color: var(--orange-pop);
+    color: white;
+    border: none;
+    padding: 11px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* RESPONSIVE LAYOUT */
+@media (max-width: 850px) {
+    .tracker-split-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+    .achievement-status-box, .buttons-control-panel {
+        text-align: center;
+    }
+    .pill-buttons-row {
+        justify-content: center;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+    }
+    .floating-title-card h1 { 
+        font-size: 2.8rem; 
+    }
+    .floating-title-card { 
+        padding: 25px 45px; 
+    }
+    .cream-layer-content {
+        margin-top: -60px; /* Di HP naiknya diperkecil agar tidak menutupi tulisan */
+    }
+    .dashed-logo-box { margin: 0 auto; }
+    .twin-input-row { flex-direction: column; }
+    .nav-links { display: none; }
+    .floating-title-card h1 { font-size: 2.4rem; }
+    .floating-title-card { padding: 20px 40px; }
+    .achievement-status-box .live-tracker-badge { font-size: 1.8rem; }
+}
+
+/* ==========================================================================
+   PERBAIKAN AMBIENT GELEMBUNG: KHUSUS AREA ATAS (BIRU POLOS)
+   ========================================================================== */
+.full-blue-canvas {
+    position: relative;
+    width: 100%;
+    padding: 0 5% 40px 5%;
+    /* overflow: hidden; -> Tetap biarkan ini ada */
+}
+
+.bubble-ambient-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 480px; /* MEMBATASI TINGGI: Hanya sebatas area biru atas & hero */
+    pointer-events: none;
+    z-index: 1; /* Di bawah teks hero, tapi di atas background */
+    overflow: hidden;
+}
+
+/* Base style gelembung */
+.bubble {
+    position: absolute;
+    /* Kita buat gelembung mulai muncul dari batas bawah area 480px tadi */
+    top: 100%; 
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 50%;
+    animation: floatUpTop 8s infinite linear;
+}
+
+.bubble::before {
+    content: '';
+    position: absolute;
+    top: 20%; left: 20%;
+    width: 25%; height: 25%;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+}
+
+/* Variasi ukuran dan delay agar natural */
+.bubble:nth-child(1) { width: 35px; height: 35px; left: 8%;  animation-duration: 7s;  animation-delay: 0s; }
+.bubble:nth-child(2) { width: 20px; height: 20px; left: 20%; animation-duration: 9s;  animation-delay: 2s; }
+.bubble:nth-child(3) { width: 50px; height: 50px; left: 35%; animation-duration: 11s; animation-delay: 1s; }
+.bubble:nth-child(4) { width: 25px; height: 25px; left: 50%; animation-duration: 8s;  animation-delay: 4s; }
+.bubble:nth-child(5) { width: 40px; height: 40px; left: 68%; animation-duration: 10s; animation-delay: 1.5s; }
+.bubble:nth-child(6) { width: 18px; height: 18px; left: 82%; animation-duration: 6s;  animation-delay: 5s; }
+.bubble:nth-child(7) { width: 42px; height: 42px; left: 15%; animation-duration: 9s;  animation-delay: 3s; }
+.bubble:nth-child(8) { width: 28px; height: 28px; left: 90%; animation-duration: 7s;  animation-delay: 6s; }
+
+/* ANIMASI BARU: Meluncur naik hanya di area atas lalu menghilang */
+@keyframes floatUpTop {
+    0% {
+        top: 100%; /* Mulai dari batas bawah area kontainer (480px) */
+        transform: translateX(0) scale(0.8);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1; /* Mulai terlihat jelas saat naik */
+    }
+    85% {
+        opacity: 1;
+    }
+    100% {
+        top: -50px; /* Menghilang tepat setelah melewati header atas */
+        transform: translateX(25px) scale(1.1);
+        opacity: 0; /* Fade out lancar */
+    }
+}
+
+/* Memastikan Card Utama dan Layer Krim Menutupi Gelembung di bawahnya */
+.hero-title-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Ubah z-index menjadi lebih tinggi dari layer cream (yang bernilai 10) */
+    z-index: 15; 
+}
+
+.cream-layer-content {
+    position: relative;
+    z-index: 10; /* Angka z-index tinggi agar gelembung tidak masuk ke area krim */
+}

@@ -1,0 +1,465 @@
+/* ==========================================================================
+   RESET SYSTEM, VARIABLES & BASE STYLES (Sama dengan Home)
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-blue: #70BDF4;
+    --layer-cream: #FFF4E0;
+    --orange-pop: #FF8A48;
+    --water-blue: #5BC0F8;
+    --text-charcoal: #2D3436;
+}
+
+body {
+    background-color: var(--bg-blue);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--text-charcoal);
+}
+
+/* ==========================================================================
+   HEADER / NAVBAR STYLE
+   ========================================================================== */
+#navbar {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    padding: 15px 0;
+    z-index: 1000;
+    background: var(--orange-pop);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+#navbar.scrolled {
+    padding: 10px 0;
+    background: rgba(255, 138, 72, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    margin-left: 30px;
+    font-size: 0.95rem;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    opacity: 1;
+}
+
+/* ==========================================================================
+   AMBIENT GELEMBUNG SYSTEM
+   ========================================================================== */
+.full-blue-canvas {
+    position: relative;
+    width: 100%;
+    padding: 0 5% 40px 5%;
+}
+
+.bubble-ambient-container {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 480px;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.bubble {
+    position: absolute;
+    top: 100%;
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 50%;
+    animation: floatUpTop 8s infinite linear;
+}
+
+.bubble::before {
+    content: '';
+    position: absolute;
+    top: 20%; left: 20%; width: 25%; height: 25%;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+}
+
+.bubble:nth-child(1) { width: 35px; height: 35px; left: 8%;  animation-duration: 7s;  animation-delay: 0s; }
+.bubble:nth-child(2) { width: 20px; height: 20px; left: 20%; animation-duration: 9s;  animation-delay: 2s; }
+.bubble:nth-child(3) { width: 50px; height: 50px; left: 35%; animation-duration: 11s; animation-delay: 1s; }
+.bubble:nth-child(4) { width: 25px; height: 25px; left: 50%; animation-duration: 8s;  animation-delay: 4s; }
+.bubble:nth-child(5) { width: 40px; height: 40px; left: 68%; animation-duration: 10s; animation-delay: 1.5s; }
+.bubble:nth-child(6) { width: 18px; height: 18px; left: 82%; animation-duration: 6s;  animation-delay: 5s; }
+.bubble:nth-child(7) { width: 42px; height: 42px; left: 15%; animation-duration: 9s;  animation-delay: 3s; }
+.bubble:nth-child(8) { width: 28px; height: 28px; left: 90%; animation-duration: 7s;  animation-delay: 6s; }
+
+@keyframes floatUpTop {
+    0% { top: 100%; transform: translateX(0) scale(0.8); opacity: 0; }
+    15% { opacity: 1; }
+    85% { opacity: 1; }
+    100% { top: -50px; transform: translateX(25px) scale(1.1); opacity: 0; }
+}
+
+/* ==========================================================================
+   HERO SECTIONS STYLE
+   ========================================================================== */
+.hero-wrapper {
+    margin-top: 110px;
+    width: 100%;
+    height: 55vh;
+    min-height: 380px;
+    position: relative;
+    border-radius: 35px;
+    overflow: hidden;
+}
+
+.hero-title-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 15;
+}
+
+.floating-title-card {
+    position: relative;
+    z-index: 16;
+    background-color: white;
+    padding: 40px 80px;
+    border-radius: 28px;
+    border: 4px solid #FADAA6;
+    text-align: center;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+    transform: rotate(-1.5deg);
+}
+
+.floating-title-card h1 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 3.8rem;
+    line-height: 0.95;
+    color: var(--bg-blue);
+}
+
+.floating-title-card .orange-text {
+    color: var(--orange-pop);
+}
+
+.tagline {
+    margin-top: 14px;
+    font-weight: 700;
+    color: #A0AAB2;
+    font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   CREAM LAYER CONTENT
+   ========================================================================== */
+.cream-layer-content {
+    background-color: var(--layer-cream);
+    margin-top: -120px;
+    position: relative;
+    z-index: 10;
+    border-radius: 50px 50px 40px 40px;
+    box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.panel-title-highlight {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text-charcoal);
+}
+
+/* ==========================================================================
+   SECTION 1 STYLE: THE INTERACTIVE SLIDER
+   ========================================================================== */
+.slider-section-wrapper {
+    padding: 140px 6% 20px 6%; 
+}
+
+.section-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.slider-arrows {
+    display: flex;
+    gap: 10px;
+}
+
+.arrow-btn {
+    background: white;
+    border: 2px solid #E2E8F0;
+    color: var(--text-charcoal);
+    width: 45px; height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+    transition: all 0.2s ease;
+}
+
+.arrow-btn:hover {
+    background: var(--orange-pop);
+    color: white;
+    border-color: var(--orange-pop);
+    transform: scale(1.08);
+}
+
+/* Kunci Utama Slider Horizontal Bergeser Luas */
+.news-slider-container {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    padding: 10px 5px 25px 5px;
+    
+    /* Memicu efek snap agar geseran card berhenti presisi di tengah/tepi */
+    scroll-snap-type: x mandatory; 
+    scroll-behavior: smooth;
+    
+    /* Menyembunyikan scrollbar standar browser demi kerapian UI */
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+}
+
+.news-slider-container::-webkit-scrollbar {
+    display: none; /* Sembunyikan scrollbar di Chrome/Safari */
+}
+
+/* Desain Item Box Card Berita */
+.news-card {
+    flex: 0 0 350px; /* Lebar statis card saat berjejer ke samping */
+    scroll-snap-align: start; /* Titik kunci snap geser */
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    text-decoration: none; /* Hilangkan garis bawah link */
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    border: 3px solid rgba(112, 189, 244, 0.12);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+}
+
+.news-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--bg-blue);
+    box-shadow: 0 15px 35px rgba(112, 189, 244, 0.2);
+}
+
+.card-image-placeholder {
+    height: 160px;
+    background: linear-gradient(135deg, #EBF8FF, #BEE3F8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5rem;
+}
+
+.card-info-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.news-tag {
+    align-self: flex-start;
+    font-size: 0.75rem;
+    font-weight: 800;
+    background: rgba(255, 138, 72, 0.15);
+    color: #DD6B20;
+    padding: 4px 12px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.card-info-content h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    color: var(--text-charcoal);
+}
+
+.card-info-content p {
+    font-size: 0.88rem;
+    color: #718096;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.read-more-lbl {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--bg-blue);
+    transition: color 0.2s;
+}
+
+.news-card:hover .read-more-lbl {
+    color: var(--orange-pop);
+}
+
+/* ==========================================================================
+   SECTION 2 STYLE: THE ENCYCLOPEDIA GRID
+   ========================================================================== */
+.edu-grid-section-wrapper {
+    padding: 40px 6% 80px 6%;
+}
+
+.text-center { text-align: center; }
+.edu-subtitle {
+    font-size: 0.98rem;
+    color: #718096;
+    margin-top: 8px;
+    margin-bottom: 45px;
+}
+
+.edu-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.edu-card {
+    background: white;
+    padding: 35px 30px;
+    border-radius: 28px;
+    border: 3px solid rgba(255, 138, 72, 0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+    transition: all 0.3s ease;
+}
+
+.edu-card:hover {
+    transform: scale(1.03);
+    background: #FFFDF9;
+    border-color: var(--orange-pop);
+}
+
+.edu-icon-circle {
+    width: 55px; height: 55px;
+    background: #FFF5F5;
+    border-radius: 18px;
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+/* Custom background icon unik per box */
+.edu-grid-container .edu-card:nth-child(1) .edu-icon-circle { background: #EBF8FF; }
+.edu-grid-container .edu-card:nth-child(2) .edu-icon-circle { background: #FFF5F5; }
+.edu-grid-container .edu-card:nth-child(3) .edu-icon-circle { background: #E6FFFA; }
+.edu-grid-container .edu-card:nth-child(4) .edu-icon-circle { background: #FEFCBF; }
+
+.edu-card h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.edu-card p {
+    font-size: 0.9rem;
+    color: #4A5568;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   FOOTER SECTION (Sama dengan Home)
+   ========================================================================== */
+.embedded-footer {
+    background-color: var(--bg-blue);
+    padding: 50px 6%;
+    color: white;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr 1.5fr;
+    gap: 40px;
+}
+
+.dashed-logo-box {
+    width: 90px; height: 90px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px dashed rgba(255, 255, 255, 0.6);
+    border-radius: 16px;
+    display: flex; justify-content: center; align-items: center;
+    font-weight: 800; font-size: 0.9rem;
+}
+
+.footer-col h4 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.15rem;
+    margin-bottom: 18px;
+}
+
+.contact-space p {
+    font-size: 0.88rem; margin-bottom: 8px; font-weight: 600;
+}
+
+.form-space form { display: flex; flex-direction: column; gap: 8px; }
+.twin-input-row { display: flex; gap: 8px; }
+.twin-input-row input { flex: 1; }
+
+.form-space input, .form-space textarea {
+    padding: 11px 14px; border-radius: 10px; border: none;
+    background-color: var(--layer-cream);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.85rem; color: var(--text-charcoal);
+}
+
+.submit-form-btn {
+    background-color: var(--orange-pop); color: white; border: none;
+    padding: 11px; border-radius: 10px; font-weight: 700; cursor: pointer;
+}
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERY
+   ========================================================================== */
+@media (max-width: 950px) {
+    .news-card { flex: 0 0 290px; } /* Di layar kecil, perkecil lebar intip card */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+    }
+    .dashed-logo-box { margin: 0 auto; }
+    .twin-input-row { flex-direction: column; }
+    .nav-links { display: none; }
+    .floating-title-card h1 { font-size: 2.4rem; }
+    .floating-title-card { padding: 20px 40px; }
+    .cream-layer-content { margin-top: -60px; }
+}

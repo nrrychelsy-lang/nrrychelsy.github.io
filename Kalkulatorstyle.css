@@ -1,0 +1,508 @@
+/* ==========================================================================
+   RESET SYSTEM, VARIABLES & BASE STYLES (Sama dengan Home)
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-blue: #70BDF4;
+    --layer-cream: #FFF4E0;
+    --orange-pop: #FF8A48;
+    --water-blue: #5BC0F8;
+    --text-charcoal: #2D3436;
+}
+
+body {
+    background-color: var(--bg-blue);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--text-charcoal);
+}
+
+/* ==========================================================================
+   HEADER / NAVBAR STYLE
+   ========================================================================== */
+#navbar {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    padding: 15px 0;
+    z-index: 1000;
+    background: var(--orange-pop);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+#navbar.scrolled {
+    padding: 10px 0;
+    background: rgba(255, 138, 72, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    margin-left: 30px;
+    font-size: 0.95rem;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    opacity: 1;
+}
+
+/* ==========================================================================
+   AMBIENT GELEMBUNG SYSTEM
+   ========================================================================== */
+.full-blue-canvas {
+    position: relative;
+    width: 100%;
+    padding: 0 5% 40px 5%;
+}
+
+.bubble-ambient-container {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 480px;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.bubble {
+    position: absolute;
+    top: 100%;
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 50%;
+    animation: floatUpTop 8s infinite linear;
+}
+
+.bubble::before {
+    content: '';
+    position: absolute;
+    top: 20%; left: 20%; width: 25%; height: 25%;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+}
+
+.bubble:nth-child(1) { width: 35px; height: 35px; left: 8%;  animation-duration: 7s;  animation-delay: 0s; }
+.bubble:nth-child(2) { width: 20px; height: 20px; left: 20%; animation-duration: 9s;  animation-delay: 2s; }
+.bubble:nth-child(3) { width: 50px; height: 50px; left: 35%; animation-duration: 11s; animation-delay: 1s; }
+.bubble:nth-child(4) { width: 25px; height: 25px; left: 50%; animation-duration: 8s;  animation-delay: 4s; }
+.bubble:nth-child(5) { width: 40px; height: 40px; left: 68%; animation-duration: 10s; animation-delay: 1.5s; }
+.bubble:nth-child(6) { width: 18px; height: 18px; left: 82%; animation-duration: 6s;  animation-delay: 5s; }
+.bubble:nth-child(7) { width: 42px; height: 42px; left: 15%; animation-duration: 9s;  animation-delay: 3s; }
+.bubble:nth-child(8) { width: 28px; height: 28px; left: 90%; animation-duration: 7s;  animation-delay: 6s; }
+
+@keyframes floatUpTop {
+    0% { top: 100%; transform: translateX(0) scale(0.8); opacity: 0; }
+    15% { opacity: 1; }
+    85% { opacity: 1; }
+    100% { top: -50px; transform: translateX(25px) scale(1.1); opacity: 0; }
+}
+
+/* ==========================================================================
+   HERO & HERO TITLE LAYOUT
+   ========================================================================== */
+.hero-wrapper {
+    margin-top: 110px;
+    width: 100%;
+    height: 55vh;
+    min-height: 380px;
+    position: relative;
+    border-radius: 35px;
+    overflow: hidden;
+}
+
+.hero-title-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 15;
+}
+
+.floating-title-card {
+    position: relative;
+    z-index: 16;
+    background-color: white;
+    padding: 40px 80px;
+    border-radius: 28px;
+    border: 4px solid #FADAA6;
+    text-align: center;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+    transform: rotate(-1.5deg);
+}
+
+.floating-title-card h1 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 3.8rem;
+    line-height: 0.95;
+    color: var(--bg-blue);
+}
+
+.floating-title-card .orange-text {
+    color: var(--orange-pop);
+}
+
+.tagline {
+    margin-top: 14px;
+    font-weight: 700;
+    color: #A0AAB2;
+    font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   CREAM LAYER (WORKSPACE UTAMA KALKULATOR)
+   ========================================================================== */
+.cream-layer-content {
+    background-color: var(--layer-cream);
+    margin-top: -120px;
+    position: relative;
+    z-index: 10;
+    border-radius: 50px 50px 40px 40px;
+    box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.calculator-split-container {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 50px;
+    padding: 140px 6%;
+    align-items: start; /* Atur start agar kolom kiri tidak ketarik melar ke bawah */
+}
+
+.panel-title-highlight {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text-charcoal);
+    margin-bottom: 12px;
+}
+
+/* STYLE FORM INPUT BERAT BADAN (KOLOM KIRI) */
+.calc-input-card {
+    background: white;
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    border: 3px solid rgba(112, 189, 244, 0.15);
+}
+
+.input-instruction, .timeline-instruction {
+    font-size: 0.95rem;
+    color: #718096;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    background: #F7FAFC;
+    border: 3px solid #E2E8F0;
+    border-radius: 20px;
+    padding: 5px 25px;
+    margin-bottom: 35px;
+    transition: all 0.3s ease;
+}
+
+.input-wrapper:focus-within {
+    border-color: var(--bg-blue);
+    background: white;
+    box-shadow: 0 0 0 5px rgba(112, 189, 244, 0.2);
+}
+
+.input-wrapper input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    padding: 15px 0;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-charcoal);
+    outline: none;
+}
+
+/* Menghilangkan panah spinner default di input number */
+.input-wrapper input::-webkit-outer-spin-button,
+.input-wrapper input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.unit-label {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #A0AAB2;
+}
+
+/* BOX DISPLAY HASIL PERHITUNGAN OUTPUT */
+.result-display-box {
+    position: relative;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* State 1: Saat belum diisi (Abu-abu idle) */
+.result-display-box.idled {
+    background: #EDF2F7;
+    border: 2px dashed #CBD5E0;
+}
+.result-display-box.idled h3 {
+    font-size: 1rem;
+    color: #718096;
+    font-weight: 600;
+}
+.result-display-box.idled .result-status-badge { display: none; }
+
+/* State 2: Saat sukses dihitung (Biru Sehat) */
+.result-display-box.calculated {
+    background: rgba(112, 189, 244, 0.15);
+    border: 3px solid var(--bg-blue);
+    transform: scale(1.02);
+}
+.result-display-box.calculated h3 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.4rem;
+    color: #2B6CB0;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+.result-status-badge {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    background: var(--bg-blue);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 10px;
+    letter-spacing: 0.5px;
+}
+
+/* ARSITEKTUR TIMELINE JADWAL (KOLOM KANAN) */
+.timeline-wrapper-card {
+    background: white;
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    border: 3px solid rgba(112, 189, 244, 0.15);
+}
+
+.timeline-empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #A0AAB2;
+    font-style: italic;
+    font-size: 0.95rem;
+    border: 2px dashed #E2E8F0;
+    border-radius: 20px;
+}
+
+/* Jalur rel vertikal utama timeline */
+.timeline-container {
+    position: relative;
+    padding-left: 35px;
+    margin-top: 10px;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 15px; left: 10px;
+    width: 4px; height: calc(100% - 30px);
+    background: #E2E8F0;
+    border-radius: 2px;
+}
+
+/* Blok baris item timeline */
+.timeline-item {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #F7FAFC;
+    padding: 18px 25px;
+    border-radius: 18px;
+    margin-bottom: 16px;
+    border: 2px solid #EDF2F7;
+    transition: all 0.3s ease;
+}
+
+/* Titik simpul di tiang rel timeline */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: -30px;
+    transform: translateY(-50%);
+    width: 14px; height: 14px;
+    background: white;
+    border: 4px solid #CBD5E0;
+    border-radius: 50%;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.time-badge {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--orange-pop);
+    margin-bottom: 3px;
+    display: block;
+}
+
+.task-desc {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-charcoal);
+}
+
+/* STYLING KUSTOM TOMBOL CHECKBOX INTEGRATED UX */
+.checklist-box input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 28px; height: 28px;
+    border: 3px solid #CBD5E0;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    transition: all 0.2s ease;
+}
+
+.checklist-box input[type="checkbox"]:hover {
+    border-color: var(--water-blue);
+    background: rgba(91, 192, 248, 0.05);
+}
+
+.checklist-box input[type="checkbox"]:checked {
+    background-color: var(--water-blue);
+    border-color: var(--water-blue);
+}
+
+/* Efek tanda centang di dalam kotak check */
+.checklist-box input[type="checkbox"]:checked::before {
+    content: '✓';
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 900;
+}
+
+/* UX STATE: EFEK VISUAL KETIKA DATA JADWAL DI-CHECKLIST */
+.timeline-item.done-state {
+    background: #EDF2F7;
+    border-color: #E2E8F0;
+    opacity: 0.7;
+}
+
+.timeline-item.done-state::before {
+    background: var(--water-blue);
+    border-color: var(--water-blue);
+}
+
+.timeline-item.done-state .task-desc {
+    text-decoration: line-through;
+    color: #A0AAB2;
+}
+
+/* ==========================================================================
+   FOOTER SECTION (Sama dengan Home)
+   ========================================================================== */
+.embedded-footer {
+    background-color: var(--bg-blue);
+    padding: 50px 6%;
+    color: white;
+    margin-top: 40px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr 1.5fr;
+    gap: 40px;
+}
+
+.dashed-logo-box {
+    width: 90px; height: 90px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px dashed rgba(255, 255, 255, 0.6);
+    border-radius: 16px;
+    display: flex; justify-content: center; align-items: center;
+    font-weight: 800; font-size: 0.9rem;
+}
+
+.footer-col h4 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.15rem;
+    margin-bottom: 18px;
+}
+
+.contact-space p {
+    font-size: 0.88rem; margin-bottom: 8px; font-weight: 600;
+}
+
+.form-space form { display: flex; flex-direction: column; gap: 8px; }
+.twin-input-row { display: flex; gap: 8px; }
+.twin-input-row input { flex: 1; }
+
+.form-space input, .form-space textarea {
+    padding: 11px 14px; border-radius: 10px; border: none;
+    background-color: var(--layer-cream);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.85rem; color: var(--text-charcoal);
+}
+
+.submit-form-btn {
+    background-color: var(--orange-pop); color: white; border: none;
+    padding: 11px; border-radius: 10px; font-weight: 700; cursor: pointer;
+}
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERY SYSTEM
+   ========================================================================== */
+@media (max-width: 950px) {
+    .calculator-split-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 60px 4%;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+    }
+    .dashed-logo-box { margin: 0 auto; }
+    .twin-input-row { flex-direction: column; }
+    .nav-links { display: none; }
+    .floating-title-card h1 { font-size: 2.4rem; }
+    .floating-title-card { padding: 20px 40px; }
+    .cream-layer-content { margin-top: -60px; }
+}

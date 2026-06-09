@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Buddy - Kalkulator Hidrasi</title>
+    <link rel="stylesheet" href="Kalkulatorstyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header id="navbar">
+        <div class="nav-container">
+            <div class="logo">Water Buddy</div>
+            <nav class="nav-links">
+                <a href="home.html">Home</a>
+                <a href="kalkulator.html" class="active">Kalkulator</a>
+                <a href="informasi.html">Informasi</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="full-blue-canvas">
+        
+        <div class="bubble-ambient-container">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+        </div>
+
+        <section class="hero-wrapper">
+            <div class="hero-title-overlay">
+                <div class="floating-title-card">
+                    <h1>HYDRATION<br><span class="orange-text">CALCULATOR</span></h1>
+                    <p class="tagline">Ukur Kebutuhan Tubuh Jeniusmu</p>
+                </div>
+            </div>
+        </section>
+
+        <main class="cream-layer-content">
+            
+            <div class="calculator-split-container">
+                
+                <div class="left-input-zone">
+                    <div class="calc-input-card">
+                        <h2 class="panel-title-highlight">Berapa Berat Badanmu?</h2>
+                        <p class="input-instruction">Masukkan berat badan dalam satuan kilogram untuk mengetahui takaran hidrasi harian yang ideal.</p>
+                        
+                        <div class="input-wrapper">
+                            <input type="number" id="weight-input" min="10" max="200" placeholder="0">
+                            <span class="unit-label">KG</span>
+                        </div>
+
+                        <div class="result-display-box idled" id="result-box">
+                            <span class="result-status-badge">Rekomendasi Target</span>
+                            <h3 id="target-output-text">Masukkan berat badan di atas...</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-timeline-zone">
+                    <div class="timeline-wrapper-card">
+                        <h2 class="panel-title-highlight">🕒 Rekomendasi Jadwal Minum</h2>
+                        <p class="timeline-instruction">Timeline ini otomatis menyesuaikan kebutuhan volumetrik cairan harianmu.</p>
+                        
+                        <div class="timeline-container" id="timeline-engine">
+                            <div class="timeline-empty-state">
+                                Silakan isi berat badan terlebih dahulu untuk memunculkan linimasa jadwal minum.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <footer class="embedded-footer">
+                <div class="footer-grid">
+                    <div class="footer-col logo-space">
+                        <div class="dashed-logo-box">LOGO</div>
+                    </div>
+                    <div class="footer-col contact-space">
+                        <h4>Hubungi Kami</h4>
+                        <p>📞 +62 812-2945-51</p>
+                        <p>✉️ UrWaterBuddy@gmail.com</p>
+                        <p>📍 Malang, Indonesia</p>
+                    </div>
+                    <div class="footer-col form-space">
+                        <h4>Tinggalkan Pesan</h4>
+                        <form onsubmit="event.preventDefault(); alert('Pesan Anda berhasil dikirim!');">
+                            <div class="twin-input-row">
+                                <input type="text" placeholder="Nama" required>
+                                <input type="email" placeholder="Email" required>
+                            </div>
+                            <textarea placeholder="Tulis masukan atau pesan Anda di sini..." rows="2" required></textarea>
+                            <button type="submit" class="submit-form-btn">Kirim Pesan</button>
+                        </form>
+                    </div>
+                </div>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <script src="Kalkulatorscript.js"></script>
+</body>
+</html>
