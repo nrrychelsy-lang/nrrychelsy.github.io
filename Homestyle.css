@@ -384,17 +384,10 @@ body {
     gap: 40px;
 }
 
-.dashed-logo-box {
-    width: 90px;
-    height: 90px;
-    background: rgba(255, 255, 255, 0.2);
-    border: 2px dashed rgba(255, 255, 255, 0.6);
-    border-radius: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 800;
-    font-size: 0.9rem;
+.footer-logo-img {
+    max-width: 90px;
+    height: auto;
+    display: block;
 }
 
 .footer-col h4 {
