@@ -1,6 +1,3 @@
-/* ==========================================================================
-   RESET SYSTEM, VARIABLES & BASE STYLES (Sama dengan Home)
-   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -21,9 +18,7 @@ body {
     color: var(--text-charcoal);
 }
 
-/* ==========================================================================
-   HEADER / NAVBAR STYLE
-   ========================================================================== */
+/* HEADER */
 #navbar {
     position: fixed;
     top: 0; left: 0; width: 100%;
@@ -71,9 +66,7 @@ body {
     opacity: 1;
 }
 
-/* ==========================================================================
-   AMBIENT GELEMBUNG SYSTEM
-   ========================================================================== */
+/* GELEMBUNG */
 .full-blue-canvas {
     position: relative;
     width: 100%;
@@ -121,9 +114,7 @@ body {
     100% { top: -50px; transform: translateX(25px) scale(1.1); opacity: 0; }
 }
 
-/* ==========================================================================
-   HERO SECTIONS STYLE
-   ========================================================================== */
+/* CARD TITLE */
 .hero-wrapper {
     margin-top: 110px;
     width: 100%;
@@ -173,9 +164,7 @@ body {
     font-size: 1.1rem;
 }
 
-/* ==========================================================================
-   CREAM LAYER CONTENT
-   ========================================================================== */
+/* LAYER CREAM */
 .cream-layer-content {
     background-color: var(--layer-cream);
     margin-top: -120px;
@@ -192,9 +181,7 @@ body {
     color: var(--text-charcoal);
 }
 
-/* ==========================================================================
-   SECTION 1 STYLE: THE INTERACTIVE SLIDER
-   ========================================================================== */
+/* SLIDER CARD */
 .slider-section-wrapper {
     padding: 140px 6% 20px 6%; 
 }
@@ -234,34 +221,31 @@ body {
     transform: scale(1.08);
 }
 
-/* Kunci Utama Slider Horizontal Bergeser Luas */
 .news-slider-container {
     display: flex;
     gap: 25px;
     overflow-x: auto;
     padding: 10px 5px 25px 5px;
     
-    /* Memicu efek snap agar geseran card berhenti presisi di tengah/tepi */
     scroll-snap-type: x mandatory; 
     scroll-behavior: smooth;
     
-    /* Menyembunyikan scrollbar standar browser demi kerapian UI */
     -ms-overflow-style: none;  
     scrollbar-width: none;  
 }
 
 .news-slider-container::-webkit-scrollbar {
-    display: none; /* Sembunyikan scrollbar di Chrome/Safari */
+    display: none;
 }
 
-/* Desain Item Box Card Berita */
+/* CARD BERITA */
 .news-card {
-    flex: 0 0 350px; /* Lebar statis card saat berjejer ke samping */
-    scroll-snap-align: start; /* Titik kunci snap geser */
+    flex: 0 0 350px; 
+    scroll-snap-align: start; 
     background: white;
     border-radius: 24px;
     overflow: hidden;
-    text-decoration: none; /* Hilangkan garis bawah link */
+    text-decoration: none; 
     color: inherit;
     display: flex;
     flex-direction: column;
@@ -331,9 +315,7 @@ body {
     color: var(--orange-pop);
 }
 
-/* ==========================================================================
-   SECTION 2 STYLE: THE ENCYCLOPEDIA GRID
-   ========================================================================== */
+/* CARD EDUKASI */
 .edu-grid-section-wrapper {
     padding: 40px 6% 80px 6%;
 }
@@ -378,7 +360,7 @@ body {
     margin-bottom: 22px;
 }
 
-/* Custom background icon unik per box */
+
 .edu-grid-container .edu-card:nth-child(1) .edu-icon-circle { background: #EBF8FF; }
 .edu-grid-container .edu-card:nth-child(2) .edu-icon-circle { background: #FFF5F5; }
 .edu-grid-container .edu-card:nth-child(3) .edu-icon-circle { background: #E6FFFA; }
@@ -396,9 +378,7 @@ body {
     line-height: 1.6;
 }
 
-/* ==========================================================================
-   FOOTER SECTION (Sama dengan Home)
-   ========================================================================== */
+/* FOOTER */
 .embedded-footer {
     background-color: var(--bg-blue);
     padding: 50px 6%;
@@ -443,9 +423,7 @@ body {
     padding: 11px; border-radius: 10px; font-weight: 700; cursor: pointer;
 }
 
-/* ==========================================================================
-   RESPONSIVE MEDIA QUERY
-   ========================================================================== */
+/* RESPONSIF */
 @media (max-width: 950px) {
     .news-card { flex: 0 0 290px; } /* Di layar kecil, perkecil lebar intip card */
     .footer-grid {

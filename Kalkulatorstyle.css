@@ -1,6 +1,3 @@
-/* ==========================================================================
-   RESET SYSTEM, VARIABLES & BASE STYLES (Sama dengan Home)
-   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -21,9 +18,7 @@ body {
     color: var(--text-charcoal);
 }
 
-/* ==========================================================================
-   HEADER / NAVBAR STYLE
-   ========================================================================== */
+/* HEADER */
 #navbar {
     position: fixed;
     top: 0; left: 0; width: 100%;
@@ -71,9 +66,7 @@ body {
     opacity: 1;
 }
 
-/* ==========================================================================
-   AMBIENT GELEMBUNG SYSTEM
-   ========================================================================== */
+/* GELEMBUNG */
 .full-blue-canvas {
     position: relative;
     width: 100%;
@@ -121,9 +114,7 @@ body {
     100% { top: -50px; transform: translateX(25px) scale(1.1); opacity: 0; }
 }
 
-/* ==========================================================================
-   HERO & HERO TITLE LAYOUT
-   ========================================================================== */
+/* FLOATING TITLE */
 .hero-wrapper {
     margin-top: 110px;
     width: 100%;
@@ -173,9 +164,7 @@ body {
     font-size: 1.1rem;
 }
 
-/* ==========================================================================
-   CREAM LAYER (WORKSPACE UTAMA KALKULATOR)
-   ========================================================================== */
+/* LAYER CREAM */
 .cream-layer-content {
     background-color: var(--layer-cream);
     margin-top: -120px;
@@ -191,7 +180,7 @@ body {
     grid-template-columns: 1fr 1.3fr;
     gap: 50px;
     padding: 140px 6%;
-    align-items: start; /* Atur start agar kolom kiri tidak ketarik melar ke bawah */
+    align-items: start;
 }
 
 .panel-title-highlight {
@@ -201,7 +190,7 @@ body {
     margin-bottom: 12px;
 }
 
-/* STYLE FORM INPUT BERAT BADAN (KOLOM KIRI) */
+/* FORM INPUT BB */
 .calc-input-card {
     background: white;
     padding: 40px;
@@ -246,7 +235,6 @@ body {
     outline: none;
 }
 
-/* Menghilangkan panah spinner default di input number */
 .input-wrapper input::-webkit-outer-spin-button,
 .input-wrapper input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -260,7 +248,7 @@ body {
     color: #A0AAB2;
 }
 
-/* BOX DISPLAY HASIL PERHITUNGAN OUTPUT */
+/* HASIL HITUNG */
 .result-display-box {
     position: relative;
     padding: 25px;
@@ -269,7 +257,6 @@ body {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* State 1: Saat belum diisi (Abu-abu idle) */
 .result-display-box.idled {
     background: #EDF2F7;
     border: 2px dashed #CBD5E0;
@@ -281,7 +268,6 @@ body {
 }
 .result-display-box.idled .result-status-badge { display: none; }
 
-/* State 2: Saat sukses dihitung (Biru Sehat) */
 .result-display-box.calculated {
     background: rgba(112, 189, 244, 0.15);
     border: 3px solid var(--bg-blue);
@@ -306,7 +292,7 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* ARSITEKTUR TIMELINE JADWAL (KOLOM KANAN) */
+/* TIMELINE */
 .timeline-wrapper-card {
     background: white;
     padding: 40px;
@@ -325,7 +311,6 @@ body {
     border-radius: 20px;
 }
 
-/* Jalur rel vertikal utama timeline */
 .timeline-container {
     position: relative;
     padding-left: 35px;
@@ -355,7 +340,6 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Titik simpul di tiang rel timeline */
 .timeline-item::before {
     content: '';
     position: absolute;
@@ -384,7 +368,7 @@ body {
     color: var(--text-charcoal);
 }
 
-/* STYLING KUSTOM TOMBOL CHECKBOX INTEGRATED UX */
+/* CHECK LIST */
 .checklist-box input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
@@ -409,7 +393,6 @@ body {
     border-color: var(--water-blue);
 }
 
-/* Efek tanda centang di dalam kotak check */
 .checklist-box input[type="checkbox"]:checked::before {
     content: '✓';
     color: white;
@@ -417,7 +400,6 @@ body {
     font-weight: 900;
 }
 
-/* UX STATE: EFEK VISUAL KETIKA DATA JADWAL DI-CHECKLIST */
 .timeline-item.done-state {
     background: #EDF2F7;
     border-color: #E2E8F0;
@@ -434,9 +416,7 @@ body {
     color: #A0AAB2;
 }
 
-/* ==========================================================================
-   FOOTER SECTION (Sama dengan Home)
-   ========================================================================== */
+/* FOOTER */
 .embedded-footer {
     background-color: var(--bg-blue);
     padding: 50px 6%;
@@ -482,9 +462,7 @@ body {
     padding: 11px; border-radius: 10px; font-weight: 700; cursor: pointer;
 }
 
-/* ==========================================================================
-   RESPONSIVE MEDIA QUERY SYSTEM
-   ========================================================================== */
+/* RESPONSIF */
 @media (max-width: 950px) {
     .calculator-split-container {
         grid-template-columns: 1fr;

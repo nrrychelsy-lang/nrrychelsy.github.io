@@ -8,7 +8,7 @@ const elementWaterFill = document.getElementById('water-fill-engine');
 const txtFeedbackHeadline = document.getElementById('feedback-headline');
 const stickyNavbar = document.getElementById('navbar');
 
-// 1. SCROLL DETECTOR FOR NAVBAR
+// SCROLL DETECTOR
 window.addEventListener('scroll', () => {
     if (window.scrollY > 40) {
         stickyNavbar.classList.add('scrolled');
@@ -17,7 +17,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// 2. HYDRATE ACTION BUTTON
+// BUTTON ACTION
 function hydrateAction(amount) {
     if (totalWaterDrank >= dailyGoalMl) return;
 
@@ -27,29 +27,27 @@ function hydrateAction(amount) {
         totalWaterDrank = dailyGoalMl;
     }
 
-    // SIMPAN KE LOCALSTORAGE: Catat progres terbaru biar gak ilang
     localStorage.setItem('waterBuddy_totalDrank', totalWaterDrank);
 
     renderAppUpdates();
 }
 
-// 3. RESET BUTTON
+// RESET BUTTON
 function resetHydrationToday() {
     totalWaterDrank = 0;
     
-    // Hapus catatan progres minum & checklist di localStorage agar mulai baru semua
     localStorage.setItem('waterBuddy_totalDrank', 0);
     localStorage.removeItem('waterBuddy_checklistState'); 
     
     renderAppUpdates();
 }
 
-// 4. RENDERING APP STATE UPDATES
+// APP UPDATE
 function renderAppUpdates() {
     // Tampilkan data air saat ini
     txtCurrentMl.textContent = `${totalWaterDrank} ml`;
     
-    // Tampilkan data target dinamis (Hasil sinkronisasi dari halaman kalkulator)
+    // Tampilkan data target
     if (txtTargetMl) {
         txtTargetMl.textContent = ` / ${dailyGoalMl} ml`;
     }
@@ -66,5 +64,4 @@ function renderAppUpdates() {
     }
 }
 
-// Jalankan fungsi render saat pertama kali halaman dibuka
 renderAppUpdates();

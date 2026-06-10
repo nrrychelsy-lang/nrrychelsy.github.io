@@ -1,6 +1,3 @@
-/* ==========================================================================
-   RESET SYSTEM & VARIABLES
-   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -21,9 +18,7 @@ body {
     color: var(--text-charcoal);
 }
 
-/* ==========================================================================
-   HEADER / NAVBAR STYLE
-   ========================================================================== */
+/* HEADER */
 #navbar {
     position: fixed;
     top: 0; left: 0; width: 100%;
@@ -71,9 +66,7 @@ body {
     opacity: 1;
 }
 
-/* ==========================================================================
-   MAIN LAYOUT MANAGEMENT
-   ========================================================================== */
+/* MAIN */
 .full-blue-canvas {
     width: 100%;
     padding: 0 5% 40px 5%;
@@ -116,8 +109,8 @@ body {
 }
 
 .floating-title-card {
-    position: relative; /* Pastikan posisinya relatif agar z-index bekerja aktif */
-    z-index: 16; /* Berikan nilai satu tingkat di atas overlay-nya */
+    position: relative; 
+    z-index: 16; 
     
     background-color: white;
     padding: 40px 80px;
@@ -129,7 +122,6 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* Memperbesar ukuran teks di dalam card agar proporsional */
 .floating-title-card h1 {
     font-family: 'Fredoka', sans-serif;
     font-size: 3.8rem; /* Naik dari 3.2rem */
@@ -148,19 +140,16 @@ body {
     font-size: 1.1rem; /* Naik dari 0.95rem */
 }
 
-/* ==========================================================================
-   CREAM LAYER (WORKSPACE UTAMA)
-   ========================================================================== */
+/* LAYER CREAM */
 .cream-layer-content {
     background-color: var(--layer-cream);
     
-    /* TRICK: Menggunakan margin minus besar untuk menarik layer krim ke atas */
     margin-top: -120px; 
     
     position: relative;
-    z-index: 10; /* Tetap di atas gelembung */
-    border-radius: 50px 50px 40px 40px; /* Sudut atas dibuat lebih melengkung halus */
-    box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.08); /* Shadow halus ke arah atas */
+    z-index: 10; 
+    border-radius: 50px 50px 40px 40px; 
+    box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.08); 
     overflow: hidden;
 }
 
@@ -172,7 +161,6 @@ body {
     align-items: center;
 }
 
-/* GELAS CONICAL (MELEBAR KE ATAS) */
 .left-glass-zone {
     display: flex;
     justify-content: center;
@@ -216,16 +204,13 @@ body {
     background: rgba(255,255,255,0.2);
 }
 
-/* ==========================================================================
-   KOLOM KANAN: STATUS TEXT & INTERACTIVE BUTTONS UPDATED
-   ========================================================================== */
+/* KOLOM UTAMA */
 .right-controls-zone {
     display: flex;
     flex-direction: column;
     gap: 45px;
 }
 
-/* Hierarki Font yang Ditonjolkan */
 .achievement-status-box .live-tracker-badge {
     font-size: 2.2rem;
     font-weight: 800;
@@ -241,7 +226,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* Ukuran Indikator Angka Diperkecil */
 .numeric-counter {
     font-family: 'Fredoka', sans-serif;
     font-size: 1.3rem;
@@ -279,7 +263,7 @@ body {
     max-width: 110px;
 }
 
-/* EFEK TOMBOL INTERAKTIF (HOVER, GLARE & ACTIVE) */
+/* TOMBOL INTERAKTIF */
 .pill-btn {
     position: relative;
     background-color: var(--orange-pop);
@@ -294,21 +278,18 @@ body {
     cursor: pointer;
     overflow: hidden;
     
-    /* Bayangan efek 3D tebal */
     box-shadow: 0 6px 0px #D56727, 0 8px 15px rgba(213, 103, 39, 0.2); 
     transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
                 box-shadow 0.2s ease, 
                 background-color 0.2s ease;
 }
 
-/* Hover: Tombol membesar & mengambang naik */
 .pill-btn:hover {
     transform: translateY(-4px) scale(1.06);
     background-color: #ff985d;
     box-shadow: 0 10px 0px #D56727, 0 12px 20px rgba(213, 103, 39, 0.3);
 }
 
-/* Efek Kilatan Sinar Menyapu Gelas/Tombol saat Kursor Datang */
 .pill-btn::after {
     content: '';
     position: absolute;
@@ -322,7 +303,6 @@ body {
     transition: left 0.6s ease-in-out;
 }
 
-/* Active: Amblas saat ditekan mouse */
 .pill-btn:active {
     transform: translateY(4px) scale(0.98);
     box-shadow: 0 2px 0px #D56727, 0 4px 10px rgba(213, 103, 39, 0.4);
@@ -340,7 +320,7 @@ body {
     color: var(--text-charcoal);
 }
 
-/* TOMBOL MASTER RESET INTERAKTIF */
+/* TOMBOL RESET */
 .master-reset-btn {
     background-color: var(--orange-pop);
     color: white;
@@ -369,9 +349,7 @@ body {
     box-shadow: 0 2px 8px rgba(230, 107, 34, 0.2);
 }
 
-/* ==========================================================================
-   FOOTER SECTION
-   ========================================================================== */
+/* FOOTER */
 .embedded-footer {
     background-color: var(--bg-blue);
     padding: 50px 6%;
@@ -462,7 +440,7 @@ body {
         padding: 25px 45px; 
     }
     .cream-layer-content {
-        margin-top: -60px; /* Di HP naiknya diperkecil agar tidak menutupi tulisan */
+        margin-top: -60px; 
     }
     .dashed-logo-box { margin: 0 auto; }
     .twin-input-row { flex-direction: column; }
@@ -472,14 +450,11 @@ body {
     .achievement-status-box .live-tracker-badge { font-size: 1.8rem; }
 }
 
-/* ==========================================================================
-   PERBAIKAN AMBIENT GELEMBUNG: KHUSUS AREA ATAS (BIRU POLOS)
-   ========================================================================== */
+
 .full-blue-canvas {
     position: relative;
     width: 100%;
     padding: 0 5% 40px 5%;
-    /* overflow: hidden; -> Tetap biarkan ini ada */
 }
 
 .bubble-ambient-container {
@@ -487,16 +462,15 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 480px; /* MEMBATASI TINGGI: Hanya sebatas area biru atas & hero */
+    height: 480px;
     pointer-events: none;
-    z-index: 1; /* Di bawah teks hero, tapi di atas background */
+    z-index: 1;
     overflow: hidden;
 }
 
 /* Base style gelembung */
 .bubble {
     position: absolute;
-    /* Kita buat gelembung mulai muncul dari batas bawah area 480px tadi */
     top: 100%; 
     background: rgba(255, 255, 255, 0.25);
     border: 1px solid rgba(255, 255, 255, 0.45);
@@ -523,38 +497,36 @@ body {
 .bubble:nth-child(7) { width: 42px; height: 42px; left: 15%; animation-duration: 9s;  animation-delay: 3s; }
 .bubble:nth-child(8) { width: 28px; height: 28px; left: 90%; animation-duration: 7s;  animation-delay: 6s; }
 
-/* ANIMASI BARU: Meluncur naik hanya di area atas lalu menghilang */
+/* ANIMASI GELEMBUNG */
 @keyframes floatUpTop {
     0% {
-        top: 100%; /* Mulai dari batas bawah area kontainer (480px) */
+        top: 100%;
         transform: translateX(0) scale(0.8);
         opacity: 0;
     }
     15% {
-        opacity: 1; /* Mulai terlihat jelas saat naik */
+        opacity: 1; 
     }
     85% {
         opacity: 1;
     }
     100% {
-        top: -50px; /* Menghilang tepat setelah melewati header atas */
+        top: -50px; 
         transform: translateX(25px) scale(1.1);
-        opacity: 0; /* Fade out lancar */
+        opacity: 0;
     }
 }
 
-/* Memastikan Card Utama dan Layer Krim Menutupi Gelembung di bawahnya */
 .hero-title-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Ubah z-index menjadi lebih tinggi dari layer cream (yang bernilai 10) */
     z-index: 15; 
 }
 
 .cream-layer-content {
     position: relative;
-    z-index: 10; /* Angka z-index tinggi agar gelembung tidak masuk ke area krim */
+    z-index: 10;
 }
